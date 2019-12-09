@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /avi/v2
+
+
+#激活
+spring:
+  profiles:
+    active: pro
+    servlet:
+      #文件上传
+      multipart:
+        #最大请求
+        max-request-size: 50MB
+        max-file-size: 15MB
+
+mybatis-plus:
+  config-location: classpath:/mapper/**/*.xml

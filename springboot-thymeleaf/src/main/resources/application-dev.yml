@@ -1,0 +1,48 @@
+debug: true
+
+spring:
+  datasource:
+    #指定使用druid作为框架连接池
+    type:  com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      username: root
+      password: root
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+      initial-size: 10
+      #  数据库连接超时
+      max-active: 50
+      min-idle: 10
+      # 监控统计用的filter:stat
+      # 日志用的filter:log4j    slf4j(logback)  log4j2
+      # 防御sql注入的filter:wall,
+      filters: stat,wall,slf4j
+      # ======  监控配置 ===========
+      web-stat-filter:
+        #  开启后台监控
+        enabled: true
+        url-pattern: /*
+        exclusions: "*.js, *.css, /druid/*"
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-password: admin
+        login-username: admin
+        reset-enable: false
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  type-aliases-package: com.wei.springboot.thymeleaf.domain.entity
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      #table-prefix: tb
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+  #   可选配置 默认配置 classpath*:/mapper/**/*.xml
+  #   注意名字一定要是 mapper
+

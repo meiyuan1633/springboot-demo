@@ -1,0 +1,25 @@
+spring:
+  thymeleaf:
+    #开启thymeleaf   任何东西可以不用配置
+    enabled: true
+    #开发阶段最好设置成false
+    cache: false
+    #设置文件存放的目录 前缀
+    prefix: classpath:/templates/
+    #文件后缀
+    suffix: .html
+    #设置渲染的模型  HTML  可以修改成HTML5
+    mode: HTML
+    encoding: UTF-8
+
+  #驱动
+  profiles:
+    active: dev
+    application:
+      name: spring-boot-mybatisplus
+
+pagehelper:
+  reasonable: true
+#分页合理化参数，默认值为false，当该参数设置为true时，
+  #pageNum<=0 时会查询第一页， pageNum>pages（超过总数时），
+  #会查询最后一页。默认false 时，直接根据参数进行查询

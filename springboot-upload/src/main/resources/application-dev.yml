@@ -1,0 +1,6 @@
+fileupload:
+  root-path: "D:\\Lesson\\class\\springboot-demo\\springboot-upload\\upload"
+  image-path: /imgs
+  pdf-path: /pdf
+  other-path: /other
+  prefix-img: IMG_

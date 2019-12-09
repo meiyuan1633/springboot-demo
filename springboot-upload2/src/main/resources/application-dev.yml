@@ -1,0 +1,80 @@
+#传统方式
+#上传到云os去   对象存储
+#fastdfs  分布式文件存储
+fileupload:
+  root-path: "D:\\Lesson\\class\\springboot-demo\\springboot-upload\\upload"
+  image-path: /imgs
+  pdf-path: /pdf
+  other-path: /other
+  prefix-img: IMG_
+
+
+spring:
+  datasource:
+    #==========JDBC配置============
+    url: jdbc:mysql://192.168.211.134:3306/db_test?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+    #初始化线程池数量 最大数  最小数
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    #驱动包8.0以上的配置
+    #=====================druid连接池配置=============================
+    druid:
+      initial-size: 5
+      max-active: 20
+      min-idle: 3
+      #配置获取连接等待超时的时间 单位毫秒
+      max-wait: 60000
+      #配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      validation-query: select
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      #打开PSCache,并且指定每个连接池上PSCache的大小
+      pool-prepared-statements: true
+      #  配置监控统计拦截器 日志配置 防火墙
+      #  stat监控数据库性能
+      #  wall  用于防火墙
+      #  日志 slf4j logback
+      #  logf4j
+      #  log4j2
+      # 配置多个英文逗号分隔
+      filters: stat,wall.slf4j
+      max-pool-prepared-statement-per-connection-size: 20
+      #合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+      #通过connectProperties属性来打开mergeSql功能 ：慢SQL记录
+      connect-properties: drui.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+      #============监控配置==============
+      #WebStatFilter配置，说明请参考Druid Wiki,配置_配置WebStatFilter
+      web-stat-filter:
+        #是否启用StatFilter默认值false
+        enabled: true
+        #拦截所有
+        url-pattern: /*
+        #排除一些不必要的url，比如 *：js/*等等
+        exclusions: "*.js,*.gif,*.jpg,*.css,*.ico,/druid/*"
+        # 关闭和开启session 统计功能 默认关闭
+        #        session-stat-enable: true
+        # sessionStatMaxCount是1000个
+        #        session-stat-max-count: 1000
+        # 配置principalSessionName，使得druid能够知道当前的session的用户是谁
+        #        principal-session-name:
+        # StatViewServlet配置，说明请参考Druid Wiki，配置_StatViewServlet配置
+        stat-view-servlet:
+          #是否启用StatViewServlet默认值为true
+          enabled: true
+          url-pattern: /druid/*
+          #界面上有一个重置功能 执行这个操作之后，会导致所有计数器清零，重新计数 建议false
+          reset-enable: false
+          #登录的后台的用户名，密码
+          login-username: admin
+          login-password: admin
+
+          # 访问控制，可以配置allow和deny这两个参数
+          # 配置格式 ip或者ip/子网掩码(24) 例如   192.168.2.112 ,192.168.2.112/24
+          # 注意 由于匹配规则不支持IPV6，配置了allow或者deny之后，会导致IPV6无法访问。
+          # allow:
+          # deny:

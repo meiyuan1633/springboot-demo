@@ -1,0 +1,8 @@
+#部署 静态文件  /nginx静态文件
+
+fileupload:
+  root-path: /opt/uploads
+  image-path: /imgs
+  pdf-path: /pdf
+  other-path: /other
+  prefix-img: IMG_

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="../asserts/plugins/JQuery/jquery.js"></script>-->
+   <!-- <script type="application/javascript">
+        $(function () {
+            $("#btn").click(function () {
+                var formData = new FormData($("#uploadForm")[0]);
+                var img = $("#img").val().trim();
+                if (img==''){
+                    alert("文件不能为空");
+                    return;
+                }
+
+                $.ajax( {
+                    data:formData,
+                    type:'POST',
+                    url:'http://localhost:8080/api/v2/UserController/upload',
+                    dataType:'JSON',
+                    success:function (data) {
+                        console.log(data);
+                    }
+                })
+            })
+
+        })
+
+    </script>-->
+
+</head>
+
+
+<body>
+<!--enctype="multipart/form-data" id="uploadForm"-->
+<form action="/UserController/upload" method="post" >
+    <input type="file" name="img" id="img">
+    <!--<input type="button" id="btn" value="提交">-->
+</form>
+</body>
+</html>

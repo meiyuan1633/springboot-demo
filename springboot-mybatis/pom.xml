@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--parent是继承父模块，不要看错-->
+    <parent>
+        <groupId>com.wei</groupId>
+        <artifactId>demo</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+     <!--重写自己的groupId  artifactId  版本号继承父类就可以-->
+    <groupId>com.wei.springboot</groupId>
+    <artifactId>mybatis</artifactId>
+   <!--    <version>0.0.1-SNAPSHOT</version>-->
+    <name>mybatis</name>
+
+    <description>Demo project for Spring Boot</description>
+     <!--不需要再定义版本  继承父类版本-->
+    <!--    <properties>-->
+    <!--        <java.version>1.8</java.version>-->
+    <!--        <druid.starter.version>1.1.20</druid.starter.version>-->
+    <!--        <mybatis.starter.version>2.1.0</mybatis.starter.version>-->
+    <!--    </properties>-->
+
+    <dependencies>
+        <!--里面的版本号不用写  继承-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+<!--            <version>${mybatis.starter.version}</version>-->
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+<!--            <version>${druid.starter.version}</version>-->
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>

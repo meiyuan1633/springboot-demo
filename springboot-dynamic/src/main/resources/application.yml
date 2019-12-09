@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    dynamic:
+      primary: db6310
+      datasource:
+        #  配置多数据源
+        db6310:
+          url: jdbc:mysql://192.168.211.134:6310/db_test?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: root
+          password: root
+        db6311:
+          url: jdbc:mysql://192.168.211.134:6311/db_test?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: root
+          password: root
+
+
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+

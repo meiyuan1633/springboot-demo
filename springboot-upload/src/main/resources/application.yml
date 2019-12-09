@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v2
+
+
+
+spring:
+  profiles:
+    active: dev
+  servlet:
+    # ========文件上传的配置信息===========
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 15MB

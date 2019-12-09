@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--thymeleaf语法-->
+<!--<h1>hello</h1>等价于<h1 th:text="hello"></h1>-->
+<h1 th:text="hello"></h1>
+<!--传值   通过键取值-->
+<h1 th:text="${msg}"></h1>
+
+<p th:text="${bean.id}"></p>
+<p th:text="${bean.title}"></p>
+
+<a th:href="@{/index/aa/bbb/}">基本URL表达式</a>
+<!--/idnex/1/10/-->
+<a th:href="@{/index/${page}/${size}/}">动态URL表达式</a>
+<!--  detail?id=1&test=1-->
+<a th:href="@{/detail(uId=${uId} , test=1)}">传参URL表达式</a>
+
+
+<img th:src="${image}">
+<!--msg="<span>123132132</span>"-->
+<p th:utext="${msg}"></p>
+
+<!--连接-->
+<a th:href="@{http://www.baidu.com}"></a>
+<!--图片-->
+<a th:src="@{/static/img/11.png}"></a>
+
+
+<div>
+    <div th:include="commons/head.html">
+
+    </div>
+
+
+    <!--    如果用户登录显示登录的用户名 -->
+
+    <!--    如果没有登录显示 登录  注册 -->
+
+    <div th:if="${bean.id > 0}">
+        <a th:text="${bean.title}"></a>
+        <a th:href="@{/user/logout/}">退出登录</a>
+    </div>
+
+    <div th:unless="${bean.id > 0}">
+        <a th:href="@{/user/login/}"> 登录 </a>
+        <a th:href="@{/user/register/}"> 注册 </a>
+    </div>
+
+    <ul>
+        <li th:each=" str :${list}">
+            <p th:text="${str}"></p>
+        </li>
+    </ul>
+    </div>
+<button th:onclick="test()">点击事件</button>
+
+<div th:include="commons/footer.html"></div>
+
+<script>
+    function test() {
+        console.log("点击事件")
+    }
+
+</script>
+</body>
+</html>

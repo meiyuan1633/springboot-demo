@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.springboot.thymeleaf.mapper.IUserMapper">
+  <resultMap id="BaseResultMap" type="com.wei.springboot.thymeleaf.domain.entity.User">
+    <id column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="u_name" jdbcType="VARCHAR" property="uName" />
+    <result column="u_password" jdbcType="VARCHAR" property="uPassword" />
+    <result column="u_phone" jdbcType="VARCHAR" property="uPhone" />
+    <result column="u_hobby" jdbcType="VARCHAR" property="uHobby" />
+    <result column="u_email" jdbcType="VARCHAR" property="uEmail" />
+    <result column="u_intro" jdbcType="VARCHAR" property="uIntro" />
+    <result column="is_delete" jdbcType="INTEGER" property="isDelete" />
+    <result column="u_request" jdbcType="VARCHAR" property="uRequest" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    u_id, u_name, u_password, u_phone, u_hobby, u_email, u_intro, is_delete, u_request
+  </sql>
+  <select id="selectList" resultType="org.apache.catalina.User">
+    select * from db_test.user where is_delete=1;
+  </select>
+</mapper>
